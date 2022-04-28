@@ -2460,7 +2460,6 @@ support :: Subcommand
 support = command "support" $ info (pure step1) d
   where
     d = progDesc "Upload index.rsh and index.mjs to help us troubleshoot!"
-
     splitByAmpersands :: BSLC8.ByteString -> [Text]
     splitByAmpersands s = T.splitOn "&" (pack $ BSLC8.unpack s)
 
