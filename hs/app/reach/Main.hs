@@ -2451,8 +2451,6 @@ whoami = command "whoami" $ info f fullDesc
   where
     f = pure . script $ write [N.text| echo "$whoami'" |]
 
-type DeviceCode = Text
-
 -- https://stackoverflow.com/a/60790430
 newtype GitHubGistResponse = GitHubGistResponse String
 instance FromJSON GitHubGistResponse where
@@ -2531,7 +2529,7 @@ support = command "support" $ info (pure step1) d
     grantType = "urn:ietf:params:oauth:grant-type:device_code"
     userAgentHeader = "user-agent"
 
-    step2WithThe :: DeviceCode -> ReaderT Env IO ()
+    step2WithThe :: Text -> ReaderT Env IO ()
     step2WithThe deviceCode = do
       let dataJson =
             object
