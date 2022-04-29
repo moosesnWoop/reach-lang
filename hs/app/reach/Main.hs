@@ -2462,35 +2462,26 @@ support = command "support" $ info (pure step1) d
     d = progDesc "Upload index.rsh and index.mjs to help us troubleshoot!"
     splitByAmpersands :: BSLC8.ByteString -> [Text]
     splitByAmpersands s = T.splitOn "&" (pack $ BSLC8.unpack s)
-
     splitByEqualsSigns :: Text -> [Text]
     splitByEqualsSigns s = T.splitOn (pack "=") s
-
     process :: BSLC8.ByteString -> [[Text]]
     process gitHubResponseString = map splitByEqualsSigns
       $ splitByAmpersands gitHubResponseString
-
     isDeviceCodePair :: [Text] -> Bool
     isDeviceCodePair pair = head pair == pack "device_code"
-
     isErrorPair :: [Text] -> Bool
     isErrorPair pair = head pair == pack "error"
-
     isUserCodePair :: [Text] -> Bool
     isUserCodePair pair = head pair == pack "user_code"
-
     isAccessTokenPair :: [Text] -> Bool
     isAccessTokenPair pair = head pair == pack "access_token"
 
     clientId :: String
     clientId = "b0e24d4cc8251c6cd14c"
-
     scope :: String
     scope = "gist"
-
     language :: String
     language = "JavaScript"
-
     typeForUploadJson :: String
     typeForUploadJson = "application/javascript"
 
