@@ -2554,12 +2554,10 @@ support = command "support" $ info (pure step1) d
               let reason = errorPair !! 1
               liftIO . T.putStr $ pack "\nError while acquiring access token: "
               liftIO . T.putStrLn $ reason
-        Just accessTokenPair -> do
-          let accessToken = accessTokenPair !! 1
-          completeStep3WithThe accessToken
+        Just accessTokenPair -> completeStep3With $ accessTokenPair !! 1
 
-    completeStep3WithThe :: Text -> ReaderT Env IO ()
-    completeStep3WithThe accessToken = do
+    completeStep3With :: Text -> ReaderT Env IO ()
+    completeStep3With accessToken = do
       indexRshExists <- liftIO $ doesFileExist "index.rsh"
       case indexRshExists of
         True -> do
