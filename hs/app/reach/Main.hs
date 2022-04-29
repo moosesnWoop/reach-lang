@@ -2582,7 +2582,6 @@ support = command "support" $ info (pure step1) d
               null' = ("empty" .= nullString)
           checkIndexMjs null' False accessToken
 
-
     checkIndexMjs :: A.Pair -> Bool -> Text -> ReaderT Env IO ()
     checkIndexMjs indexRshJson indexRshExists accessToken = do
       indexMjsExists <- liftIO $ doesFileExist "index.mjs"
