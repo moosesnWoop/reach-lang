@@ -2475,7 +2475,6 @@ support = command "support" $ info (pure step1) d
     isUserCodePair pair = head pair == pack "user_code"
     isAccessTokenPair :: [Text] -> Bool
     isAccessTokenPair pair = head pair == pack "access_token"
-
     clientId :: String
     clientId = "b0e24d4cc8251c6cd14c"
     scope :: String
@@ -2484,10 +2483,8 @@ support = command "support" $ info (pure step1) d
     language = "JavaScript"
     typeForUploadJson :: String
     typeForUploadJson = "application/javascript"
-
     acceptHeader = "Accept"
     authorizationHeader = "Authorization"
-
     step1 :: App
     step1 = do
       let dataJson =
