@@ -2516,7 +2516,7 @@ support = command "support" $ info (pure step1) d
       liftIO . T.putStrLn $ pack $ "Your user code is " ++ unpack userCode
       liftIO . T.putStrLn $ pack "Please enter it at https://github.com/login/device"
       liftIO . T.putStrLn $ pack ""
-      liftIO . T.putStrLn $ pack "Type 'y' AFTER SUCCESSFUL AUTHORIZATION"
+      liftIO . T.putStrLn $ pack "Type 'y' after successful authorization"
       liftIO . T.putStrLn $ pack "to upload index.mjs, index.rsh, or both:"
       userEnteredCharacter <- liftIO getChar
       case toUpper userEnteredCharacter of
